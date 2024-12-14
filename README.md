@@ -26,7 +26,6 @@ Install dependencies. On Ubuntu, this can be done with:
 
 ```bash
 sudo apt-get update
-
 sudo apt-get install cmake ninja-build rapidjson-dev
 ```
 
@@ -35,9 +34,8 @@ sudo apt-get install cmake ninja-build rapidjson-dev
 To build libosi, from the root of this repo run:
 
 ```bash
-mkdir build && cd $_
-cmake -GNinja ..
-ninja
+cmake -B build -GNinja -DCMAKE_INSTALL_PREFIX=/usr
+ninja -C build
 ```
 
 ### Installing
@@ -45,24 +43,22 @@ ninja
 Installing libosi includes running:
 
 ```bash
-cd build && ninja package
-sudo dpkg -i libosi-[version].deb
+ninja -C build package
+sudo dpkg -i build/libosi*.deb
 ```
 
 ### Testing
 
 Testing is currently implemented for offset and iohal. To run the tests, you will 
-first need to install dependencies and enable testing:
+first need to install dependencies and run the following commands to execute all the tests:
 
 ```bash
 sudo apt-get install libgtest-dev
 
-cd build
-cmake -GNinja -DENABLE_TESTING=ON ..
-ninja
+cmake -B build -GNinja -DENABLE_TESTING=ON
+ninja -C build
+ninja -C build test
 ```
-
-You can then run the tests with just `ninja test`.
 
 ### Development 
 
