@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 3.15)
 set(GTEST_SRC_DIR "/usr/src/gtest" CACHE PATH "Path to google test source")
 if (NOT EXISTS ${GTEST_SRC_DIR})
     message(WARNING "Could not find ${GTEST_SRC_DIR}")
