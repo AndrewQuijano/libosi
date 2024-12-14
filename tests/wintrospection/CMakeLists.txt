@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 3.15)
 add_executable(test-basic test_basic.cc)
 target_link_libraries(test-basic wintrospection gtest_main offset iohal)
 add_test(Wintrospection test-basic)
