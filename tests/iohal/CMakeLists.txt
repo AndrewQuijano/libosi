@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 3.15)
 add_executable(test-sparsemem ${CMAKE_CURRENT_SOURCE_DIR}/sparse_pmem.h
                              ${CMAKE_CURRENT_SOURCE_DIR}/sparse_pmem.cc
                              ${CMAKE_CURRENT_SOURCE_DIR}/test_sparse_pmem.cc)
